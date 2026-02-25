@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,11 +18,28 @@ namespace CarProject
             Brand = brand;
             Color = color;
 
+
             // Console.WriteLine($"Car created: {Brand} in {Color}");
             Console.WriteLine("Car created: " + Brand + " in " + Color);
         }
 
+        public void Accelerate(int Amount)
+        {
+            Speed += Amount;
+            Console.WriteLine($"Accelerating... Current speed: {Speed} km/h");
+        }
 
-
+        public void Brake(int Amount)
+        {
+            Speed -= Amount;
+            if (Speed < 0)
+                Speed = 0;
+            Console.WriteLine($"Braking... Current Speed: {Speed} km/h");
+        }
+        public void Stop()
+        {
+            Speed = 0;
+            Console.WriteLine("Car stopped.");
+        }
     }
 }
